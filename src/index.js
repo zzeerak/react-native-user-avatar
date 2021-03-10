@@ -60,7 +60,8 @@ const UserAvatar = (props) => {
       getContainerStyle(size, src, borderRadius),
       style]}
     >
-      {inner}
+       <TextAvatar
+        textColor={textColor} size={size} name={name} style={textStyle} />
     </View>
   );
 };
