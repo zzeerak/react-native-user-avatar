@@ -30,7 +30,7 @@
     "clean": "rm -rf node_modules coverage .env lib Example/node_modules"
   },
   "dependencies": {
-    "abortcontroller-polyfill": "^1.4.0",
+    "abortcontroller-polyfill": "^1.7.1",
     "initials": "^3.0.1",
     "prop-types": "^15.7.2"
   },
