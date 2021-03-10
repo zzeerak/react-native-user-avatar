@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
-import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only';
 
 import {
   TextAvatar,
@@ -38,21 +37,6 @@ const UserAvatar = (props) => {
   const [inner, setInner] = useState(
       <TextAvatar
         textColor={textColor} size={size} name={name} style={textStyle} />);
-
-  useEffect(() => {
-    if (component) setInner(<CustomAvatar size={size} component={component} />);
-    if (src) {
-      const controller = new (AbortController || window.AbortController)();
-      fetchImage(src, {signal: controller.signal}).then((isImage) => {
-        if (isImage) {
-          setInner(
-              <ImageAvatar src={src} size={size} imageStyle={imageStyle} />,
-          );
-        }
-      });
-      return () => controller.abort();
-    }
-  }, []);
 
   return (
     <View style={[
